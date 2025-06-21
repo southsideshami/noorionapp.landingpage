@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noorion – Coming Soon</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <script defer src="https://unpkg.com/@vercel/analytics/dist/analytics.umd.js"></script>
   <style>
     :root {
       --navy: #0b132b;
@@ -82,16 +83,17 @@
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
       min-width: 100px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
 
     .timer-box:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
+      background-color: #f6eecf;
     }
 
     .timer-box span {
       display: block;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       color: #222;
     }
 
