@@ -128,10 +128,20 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <audio id="quranPlayer" autoplay muted loop>
     <source src="https://verses.quran.com/Abdurrahmaan_As-Sudais/mp3/001.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.addEventListener('click', () => {
+        const audio = document.getElementById('quranPlayer');
+        audio.muted = false;
+        audio.play().catch(e => console.log('Autoplay error:', e));
+      });
+    });
+  </script>
+
   <header>
     <span class="coming-soon">Coming Soon</span>
     <h1>Welcome to <span class="highlight">Noorion</span></h1>
