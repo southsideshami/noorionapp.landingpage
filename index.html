@@ -69,6 +69,32 @@
       font-size: 2rem;
       font-weight: bold;
       color: var(--gold);
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .timer-box {
+      background-color: #fff3ce;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-width: 80px;
+    }
+
+    .timer-box span {
+      display: block;
+      font-size: 1.2rem;
+      color: #222;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #555;
+      margin-top: 0.25rem;
     }
 
     .grid {
@@ -137,7 +163,12 @@
   <section>
     <div class="card">
       <h3>Countdown to Launch</h3>
-      <div class="timer" id="countdown"></div>
+      <div class="timer">
+        <div class="timer-box"><span id="days">0</span><div class="label">Days</div></div>
+        <div class="timer-box"><span id="hours">0</span><div class="label">Hours</div></div>
+        <div class="timer-box"><span id="minutes">0</span><div class="label">Minutes</div></div>
+        <div class="timer-box"><span id="seconds">0</span><div class="label">Seconds</div></div>
+      </div>
     </div>
   </section>
 
@@ -220,7 +251,6 @@
   </footer>
 
   <script>
-    const countdown = document.getElementById('countdown');
     const targetDate = new Date();
     targetDate.setMonth(targetDate.getMonth() + 3);
 
@@ -229,7 +259,10 @@
       const diff = targetDate - now;
 
       if (diff <= 0) {
-        countdown.textContent = "We’ve launched!";
+        document.getElementById('days').textContent = 0;
+        document.getElementById('hours').textContent = 0;
+        document.getElementById('minutes').textContent = 0;
+        document.getElementById('seconds').textContent = 0;
         return;
       }
 
@@ -238,7 +271,10 @@
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
     }
 
     setInterval(updateCountdown, 1000);
