@@ -63,26 +63,10 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .form-input {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-
-    .form-button {
-      background-color: var(--gold);
-      border: none;
-      padding: 0.75rem;
-      width: 100%;
-      border-radius: 4px;
+    .timer {
+      font-size: 2rem;
       font-weight: bold;
-      cursor: pointer;
-      color: var(--navy);
-      font-size: 1rem;
+      color: var(--gold);
     }
 
     .grid {
@@ -136,15 +120,8 @@
 
   <section>
     <div class="card">
-      <h3>Sign Up for the Release Date</h3>
-      <form id="signup-form">
-        <input type="text" name="name" class="form-input" placeholder="Your full name" required />
-        <input type="email" name="email" class="form-input" placeholder="your@email.com" required />
-        <input type="text" name="location" class="form-input" placeholder="Your city/state" required />
-        <input type="tel" name="phone" class="form-input" placeholder="Contact number" required />
-        <button type="submit" class="form-button">Sign Up</button>
-      </form>
-      <p>Be notified when Noorion launches</p>
+      <h3>Countdown to Launch</h3>
+      <div class="timer" id="countdown"></div>
     </div>
   </section>
 
@@ -198,17 +175,21 @@
     </div>
   </section>
 
-  <section class="dark-section">
-    <h2>Be Part of Something Greater</h2>
-    <p>Help us build the platform the Ummah deserves. Sign up now to be notified the moment Noorion launches.</p>
-    <div class="card">
-      <form id="signup-form-2">
-        <input type="text" name="name" class="form-input" placeholder="Your full name" required />
-        <input type="email" name="email" class="form-input" placeholder="your@email.com" required />
-        <input type="text" name="location" class="form-input" placeholder="Your city/state" required />
-        <input type="tel" name="phone" class="form-input" placeholder="Contact number" required />
-        <button type="submit" class="form-button">Sign Up</button>
-      </form>
+  <section>
+    <h2>Join a Growing Community</h2>
+    <div class="community-metrics">
+      <div>
+        <div style="font-size: 1.75rem;">1.8B+</div>
+        <div>Muslims Worldwide</div>
+      </div>
+      <div>
+        <div style="font-size: 1.75rem;">3mil+</div>
+        <div>Mosques Globally</div>
+      </div>
+      <div>
+        <div style="font-size: 1.75rem;">24/7</div>
+        <div>Spiritual Connection</div>
+      </div>
     </div>
   </section>
 
@@ -217,43 +198,29 @@
   </footer>
 
   <script>
-    async function handleSignup(form) {
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        location: formData.get('location'),
-        phone: formData.get('phone')
-      };
+    const countdown = document.getElementById('countdown');
+    const targetDate = new Date();
+    targetDate.setMonth(targetDate.getMonth() + 3);
 
-      try {
-        const response = await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
 
-        if (!response.ok) throw new Error('Signup failed');
-
-        alert('Thank you for signing up!');
-        form.reset();
-      } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error. Please try again.');
+      if (diff <= 0) {
+        countdown.textContent = "We’ve launched!";
+        return;
       }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    document.getElementById('signup-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      handleSignup(this);
-    });
-
-    document.getElementById('signup-form-2').addEventListener('submit', function (e) {
-      e.preventDefault();
-      handleSignup(this);
-    });
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
