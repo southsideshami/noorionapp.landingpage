@@ -221,11 +221,6 @@
       const formData = new FormData(form);
       const data = {
         email: formData.get('email'),
-        attributes: {
-          FIRSTNAME: formData.get('name'),
-          SMS: formData.get('phone'),
-          LOCATION: formData.get('location')
-        },
         listIds: [3]
       };
 
