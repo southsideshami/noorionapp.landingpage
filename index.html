@@ -220,21 +220,22 @@
     async function handleSignup(form) {
       const formData = new FormData(form);
       const data = {
+        name: formData.get('name'),
         email: formData.get('email'),
-        listIds: [3]
+        location: formData.get('location'),
+        phone: formData.get('phone')
       };
 
       try {
-        const response = await fetch('https://api.brevo.com/v3/contacts', {
+        const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'api-key': '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'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         });
 
-        if (!response.ok) throw new Error('Something went wrong');
+        if (!response.ok) throw new Error('Signup failed');
 
         alert('Thank you for signing up!');
         form.reset();
