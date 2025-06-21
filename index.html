@@ -33,7 +33,7 @@
     header, section {
       width: 100%;
       max-width: 1100px;
-      padding: 2rem 1rem;
+      padding: 1.25rem 1rem;
       text-align: center;
     }
 
@@ -57,51 +57,45 @@
 
     .card {
       border: 1px solid #ddd;
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 600px;
+      background: radial-gradient(circle at center, #fffdf4, #fff3ce);
+      border-radius: 14px;
+      padding: 2.5rem 1.5rem;
       margin: 1rem auto 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       animation: fadeIn 2s ease;
     }
 
     .timer {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--gold);
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       flex-wrap: wrap;
-      margin-top: 1rem;
-      gap: 1rem;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
     .timer-box {
-      background-color: #fff3ce;
-      padding: 1.25rem 1.75rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      min-width: 100px;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      background: #fff7db;
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease, background 0.4s ease;
     }
 
     .timer-box:hover {
-      transform: scale(1.05);
-      background-color: #f6eecf;
+      transform: scale(1.07);
+      background: #ffeaa7;
     }
 
     .timer-box span {
       display: block;
-      font-size: 1.75rem;
-      color: #222;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
     }
 
     .label {
       font-size: 0.9rem;
-      font-weight: 500;
       color: #555;
-      margin-top: 0.25rem;
     }
 
     .grid {
@@ -114,9 +108,14 @@
     .feature-box {
       border: 1px solid var(--gold);
       padding: 1.5rem;
-      border-radius: 10px;
-      background-color: #ffffff;
-      animation: slideUp 1s ease forwards;
+      border-radius: 12px;
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     .community-metrics {
@@ -139,7 +138,7 @@
     }
 
     .mockup {
-      margin-top: 4rem;
+      margin-top: 3rem;
       text-align: center;
     }
 
@@ -152,11 +151,6 @@
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -178,78 +172,6 @@
       </div>
     </div>
   </section>
-
-  <section>
-    <h2>Why the Ummah Needs Noorion</h2>
-    <p>In today's digital age, Muslims are scattered across countless platforms that don't serve our values or needs. Noorion bridges this gap by providing a dedicated space where faith meets technology.</p>
-    <div class="grid">
-      <div class="feature-box">
-        <h3 class="highlight">Community Connection</h3>
-        <p>Connect with verified Muslims in your area and around the world in a safe, moderated environment.</p>
-      </div>
-      <div class="feature-box">
-        <h3 class="highlight">Authentic Content</h3>
-        <p>Explore meaningful content centered around Islamic values and unity.</p>
-      </div>
-      <div class="feature-box">
-        <h3 class="highlight">Privacy First</h3>
-        <p>Your data and conversations are protected with Islamic values and modern security in mind.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Everything You Need in One App</h2>
-    <p>From prayer times to community connections, Noorion provides comprehensive tools for the modern Muslim lifestyle.</p>
-    <div class="grid">
-      <div class="feature-box">
-        <h3>Find Your Nearest Masjid</h3>
-        <p>Locate mosques in your area with detailed information, prayer times, and contact details.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Accurate Qibla Direction</h3>
-        <p>Get precise Qibla direction anywhere in the world using GPS technology.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Prayer Times & Reminders</h3>
-        <p>Never miss a prayer with accurate times based on your location and customizable notifications.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Daily Duas & Reminders</h3>
-        <p>Receive authentic daily supplications and Islamic reminders curated for you.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Secure Chat Functions</h3>
-        <p>Connect with brothers and sisters in separate, moderated chat environments.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Local Islamic Classes</h3>
-        <p>Discover and enroll in classes offered by your local masjid and students of knowledge.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Join a Growing Community</h2>
-    <div class="community-metrics">
-      <div>
-        <div style="font-size: 1.75rem;">1.8B+</div>
-        <div>Muslims Worldwide</div>
-      </div>
-      <div>
-        <div style="font-size: 1.75rem;">3mil+</div>
-        <div>Mosques Globally</div>
-      </div>
-      <div>
-        <div style="font-size: 1.75rem;">24/7</div>
-        <div>Spiritual Connection</div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    &copy; 2025 Noorion. Building the future of Islamic community connection.
-  </footer>
 
   <script>
     const targetDate = new Date();
@@ -280,6 +202,9 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+  </script>
+  <script>
+    if (window.Analytics) Analytics();
   </script>
 </body>
 </html>
