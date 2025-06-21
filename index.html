@@ -21,11 +21,12 @@
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--ivory);
+      background: linear-gradient(135deg, #fff8e7, #fdf6e3);
       color: var(--navy);
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow-x: hidden;
     }
 
     header, section {
@@ -61,6 +62,7 @@
       max-width: 500px;
       margin: 0 auto 2rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease;
     }
 
     .timer {
@@ -81,14 +83,7 @@
       padding: 1.5rem;
       border-radius: 8px;
       background-color: #ffffff;
-    }
-
-    .dark-section {
-      background-color: var(--navy);
-      color: white;
-      padding: 2rem;
-      width: 100%;
-      text-align: center;
+      animation: slideUp 1s ease forwards;
     }
 
     .community-metrics {
@@ -108,6 +103,27 @@
       font-size: 0.9rem;
       color: #555;
       background-color: #f4f4f4;
+    }
+
+    .mockup {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .mockup img {
+      max-width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -191,6 +207,12 @@
         <div>Spiritual Connection</div>
       </div>
     </div>
+  </section>
+
+  <section class="mockup">
+    <h2>Experience a Sneak Peek</h2>
+    <p>Here’s a preview of what Noorion’s interface might look like – beautiful, functional, and focused on faith.</p>
+    <img src="https://via.placeholder.com/800x400?text=Noorion+App+Mockup" alt="Noorion App Preview">
   </section>
 
   <footer class="footer">
