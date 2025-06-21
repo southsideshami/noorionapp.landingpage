@@ -13,15 +13,24 @@
       --ivory: #fff8e7;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       background-color: var(--ivory);
       color: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     header, section {
+      width: 100%;
+      max-width: 900px;
       padding: 2rem;
       text-align: center;
     }
@@ -40,14 +49,16 @@
       border-radius: 4px;
       font-size: 0.9rem;
       color: var(--navy);
+      display: inline-block;
+      margin-bottom: 1rem;
     }
 
     .card {
       border: 1px solid #ddd;
       background-color: #ffffff;
       border-radius: 8px;
-      padding: 1.5rem;
-      max-width: 400px;
+      padding: 2rem;
+      max-width: 500px;
       margin: 0 auto 2rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
@@ -59,6 +70,7 @@
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
+      font-size: 1rem;
     }
 
     .form-button {
@@ -70,6 +82,7 @@
       font-weight: bold;
       cursor: pointer;
       color: var(--navy);
+      font-size: 1rem;
     }
 
     .grid {
@@ -81,8 +94,8 @@
 
     .feature-box {
       border: 1px solid var(--gold);
-      padding: 1rem;
-      border-radius: 6px;
+      padding: 1.5rem;
+      border-radius: 8px;
       background-color: #ffffff;
     }
 
@@ -90,19 +103,22 @@
       background-color: var(--navy);
       color: white;
       padding: 2rem;
+      width: 100%;
       text-align: center;
     }
 
     .community-metrics {
       display: flex;
       justify-content: center;
-      gap: 4rem;
+      flex-wrap: wrap;
+      gap: 2rem;
       margin-top: 2rem;
       font-weight: bold;
       color: var(--gold);
     }
 
     .footer {
+      width: 100%;
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
