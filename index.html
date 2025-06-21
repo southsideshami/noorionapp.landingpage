@@ -137,11 +137,11 @@
   <section>
     <div class="card">
       <h3>Sign Up for the Release Date</h3>
-      <form>
-        <input type="text" class="form-input" placeholder="Your full name" required />
-        <input type="email" class="form-input" placeholder="your@email.com" required />
-        <input type="text" class="form-input" placeholder="Your city/state" required />
-        <input type="tel" class="form-input" placeholder="Contact number" required />
+      <form id="signup-form">
+        <input type="text" name="name" class="form-input" placeholder="Your full name" required />
+        <input type="email" name="email" class="form-input" placeholder="your@email.com" required />
+        <input type="text" name="location" class="form-input" placeholder="Your city/state" required />
+        <input type="tel" name="phone" class="form-input" placeholder="Contact number" required />
         <button type="submit" class="form-button">Sign Up</button>
       </form>
       <p>Be notified when Noorion launches</p>
@@ -198,33 +198,15 @@
     </div>
   </section>
 
-  <section>
-    <h2>Join a Growing Community</h2>
-    <div class="community-metrics">
-      <div>
-        <div style="font-size: 1.75rem;">1.8B+</div>
-        <div>Muslims Worldwide</div>
-      </div>
-      <div>
-        <div style="font-size: 1.75rem;">3mil+</div>
-        <div>Mosques Globally</div>
-      </div>
-      <div>
-        <div style="font-size: 1.75rem;">24/7</div>
-        <div>Spiritual Connection</div>
-      </div>
-    </div>
-  </section>
-
   <section class="dark-section">
     <h2>Be Part of Something Greater</h2>
     <p>Help us build the platform the Ummah deserves. Sign up now to be notified the moment Noorion launches.</p>
     <div class="card">
-      <form>
-        <input type="text" class="form-input" placeholder="Your full name" required />
-        <input type="email" class="form-input" placeholder="your@email.com" required />
-        <input type="text" class="form-input" placeholder="Your city/state" required />
-        <input type="tel" class="form-input" placeholder="Contact number" required />
+      <form id="signup-form-2">
+        <input type="text" name="name" class="form-input" placeholder="Your full name" required />
+        <input type="email" name="email" class="form-input" placeholder="your@email.com" required />
+        <input type="text" name="location" class="form-input" placeholder="Your city/state" required />
+        <input type="tel" name="phone" class="form-input" placeholder="Contact number" required />
         <button type="submit" class="form-button">Sign Up</button>
       </form>
     </div>
@@ -233,5 +215,49 @@
   <footer class="footer">
     &copy; 2024 Noorion. Building the future of Islamic community connection.
   </footer>
+
+  <script>
+    async function handleSignup(form) {
+      const formData = new FormData(form);
+      const data = {
+        email: formData.get('email'),
+        attributes: {
+          FIRSTNAME: formData.get('name'),
+          SMS: formData.get('phone'),
+          LOCATION: formData.get('location')
+        },
+        listIds: [3]
+      };
+
+      try {
+        const response = await fetch('https://api.brevo.com/v3/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'api-key': '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'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error('Something went wrong');
+
+        alert('Thank you for signing up!');
+        form.reset();
+      } catch (error) {
+        console.error('Error:', error);
+        alert('There was an error. Please try again.');
+      }
+    }
+
+    document.getElementById('signup-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      handleSignup(this);
+    });
+
+    document.getElementById('signup-form-2').addEventListener('submit', function (e) {
+      e.preventDefault();
+      handleSignup(this);
+    });
+  </script>
 </body>
 </html>
